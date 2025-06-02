@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sphere Grid</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/libs/d3.v7.min.js') }}"></script>
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+
+  <h1>Sphere Grid</h1>
+
+  <!-- Add Node Button -->
+  <button id="addNodeBtn">Add Node</button>
+
+  <svg width="1200" height="800"></svg>
+
+  <!-- Modal for Add Node -->
+  <div id="addNodeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Add New Node</h2>
+      <form id="addNodeForm">
+        <label>Node Name:</label><br>
+        <input type="text" id="nodeId" required><br><br>
+
+        <label>Group:</label><br>
+        <select id="nodeGroup" required>
+          <option value="certification">Certification</option>
+          <option value="skill">Skill</option>
+          <option value="degree">Degree</option>
+          <option value="project">Project</option>
+          <option value="role">Role</option>
+        </select><br><br>
+
+        <label>Lane (Discipline):</label><br>
+        <select id="nodeLane" required>
+        <option value="Networking and Security">Networking and Security</option>
+        <option value="System Administration and Engineering">System Administration and Engineering</option>
+        <option value="Architecting and Planning">Architecting and Planning</option>
+        <option value="Business and Product Ownership">Business and Product Ownership</option>
+        </select><br><br>
+
+
+        <label>Acquired Date:</label><br>
+        <input type="date" id="nodeDate"><br><br>
+
+        <button type="submit">Add Node</button>
+      </form>
+    </div>
+  </div>
+
+<!-- Edit Node Modal -->
+<div id="editNodeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeEditModal">&times;</span>
+    <h2>Edit Node</h2>
+    <form id="editNodeForm">
+      <input type="hidden" id="editNodeIndex">
+      <label>Node Name:</label><br>
+      <input type="text" id="editNodeId" required><br><br>
+
+      <label>Group:</label><br>
+      <select id="editNodeGroup" required>
+        <option value="certification">Certification</option>
+        <option value="skill">Skill</option>
+        <option value="degree">Degree</option>
+        <option value="project">Project</option>
+        <option value="role">Role</option>
+      </select><br><br>
+
+      <label>Lane (Discipline):</label><br>
+      <select id="editNodeLane" required>
+        <option value="Networking and Security">Networking and Security</option>
+        <option value="System Administration and Engineering">System Administration and Engineering</option>
+        <option value="Architecting and Planning">Architecting and Planning</option>
+        <option value="Business and Product Ownership">Business and Product Ownership</option>
+      </select><br><br>
+
+      <label>Acquired Date:</label><br>
+      <input type="date" id="editNodeDate"><br><br>
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+</div>
+
+  <!-- Add Cluster Button -->
+<button id="addClusterBtn">Add Cluster</button>
+
+    <!-- Modal for Add Cluster -->
+    <div id="addClusterModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeClusterModal">&times;</span>
+        <h2>Add New Cluster</h2>
+        <form id="addClusterForm">
+        <label>Cluster Name:</label><br>
+        <input type="text" id="clusterName" required><br><br>
+
+        <label>Cluster Type:</label><br>
+        <select id="clusterType" required>
+            <option value="role">Role</option>
+            <option value="project">Project</option>
+        </select><br><br>
+
+        <button type="submit">Add Cluster</button>
+        </form>
+    </div>
+    </div>
+
+
+  <script src="{{ url_for('static', filename='js/sphere_grid.js') }}"></script>
+</body>
+</html>
