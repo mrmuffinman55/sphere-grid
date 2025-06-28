@@ -1,134 +1,363 @@
 {
   "domains": [
     {
-      "name": "Technology",
+      "name": "Technical Professional",
       "clusters": [
         {
-          "name": "Principal Engineer",
-          "type": "role",
-          "domain_level": true,
+          "name": "Software Design and Architecture",
+          "type": "discipline",
+          "domain_level": false,
           "nodes": [
-            {
-              "id": "System Design",
-              "group": "skill",
-              "lane": "Architecting and Planning",
-              "acquired_date": "2022-12-01"
-            },
-            {
-              "id": "test",
-              "group": "project",
-              "lane": "yakoow",
-              "acquired_date": ""
-            },
-            {
-              "id": "rrt",
-              "group": "certification",
-              "lane": "Networking and Security",
-              "acquired_date": ""
-            },
-            {
-              "id": "rrtsfsf",
-              "group": "certification",
-              "lane": "Networking and Security",
-              "acquired_date": ""
-            },
-            {
-              "id": "dfdf",
-              "group": "certification",
-              "lane": "Networking and Security",
-              "acquired_date": ""
-            },
-            {
-              "id": "dsvsv",
-              "group": "skill",
-              "lane": "System Administration and Engineering",
-              "acquired_date": ""
-            },
-            {
-              "id": "sdsvd",
-              "group": "certification",
-              "lane": "Networking and Security",
-              "acquired_date": ""
-            },
-            {
-              "id": "sdcscdcs",
-              "group": "certification",
-              "lane": "Networking and Security",
-              "acquired_date": ""
-            },
-            {
-              "id": "adaadv s",
-              "group": "certification",
-              "lane": "Networking and Security",
-              "acquired_date": ""
-            },
-            {
-              "id": "dcsdcsdc",
-              "group": "certification",
-              "lane": "Networking and Security",
-              "acquired_date": ""
-            },
-            {
-              "id": "dsffsdfsf",
-              "group": "certification",
-              "lane": "Networking and Security",
-              "acquired_date": ""
-            }
+            { "id": "UML (Unified Modeling Language)", "group": "skill", "lane": "Design & Modeling", "acquired_date": "" },
+            { "id": "Design Patterns", "group": "skill", "lane": "Design & Modeling", "acquired_date": "" },
+            { "id": "Component Design", "group": "skill", "lane": "Design & Modeling", "acquired_date": "" },
+            { "id": "Interface Definition", "group": "skill", "lane": "Design & Modeling", "acquired_date": "" },
+            { "id": "Code Review and Refactoring", "group": "skill", "lane": "Quality & Improvement", "acquired_date": "" },
+            { "id": "Performance Profiling", "group": "skill", "lane": "Performance Optimization", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Programming Languages",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Syntax & Semantics (General)", "group": "skill", "lane": "Foundational Coding", "acquired_date": "" },
+            { "id": "Data Structures & Algorithms", "group": "skill", "lane": "Foundational Coding", "acquired_date": "" },
+            { "id": "Object-Oriented Programming (OOP)", "group": "skill", "lane": "Programming Paradigms", "acquired_date": "" },
+            { "id": "Functional Programming (FP)", "group": "skill", "lane": "Programming Paradigms", "acquired_date": "" },
+            { "id": "Debugging", "group": "skill", "lane": "Development Tools", "acquired_date": "" },
+            { "id": "IDE Proficiency", "group": "skill", "lane": "Development Tools", "acquired_date": "" },
+            { "id": "Standard Library Usage", "group": "skill", "lane": "Language Proficiency", "acquired_date": "" },
+            { "id": "Third-Party Library Integration", "group": "skill", "lane": "Language Proficiency", "acquired_date": "" },
+            { "id": "Code Optimization", "group": "skill", "lane": "Performance Optimization", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Software Development Methodologies",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Agile Scrum", "group": "skill", "lane": "Project Management", "acquired_date": "" },
+            { "id": "Kanban", "group": "skill", "lane": "Project Management", "acquired_date": "" },
+            { "id": "Version Control Workflow (Git)", "group": "skill", "lane": "Collaboration & Tools", "acquired_date": "" },
+            { "id": "Task Management Tools (Jira, Trello)", "group": "skill", "lane": "Project Management", "acquired_date": "" },
+            { "id": "Estimation Techniques", "group": "skill", "lane": "Project Management", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Problem Solving and Analytical Thinking",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Problem Decomposition", "group": "skill", "lane": "Analytical Skills", "acquired_date": "" },
+            { "id": "Root Cause Analysis", "group": "skill", "lane": "Analytical Skills", "acquired_date": "" },
+            { "id": "Logical Reasoning", "group": "skill", "lane": "Analytical Skills", "acquired_date": "" },
+            { "id": "Algorithmic Thinking", "group": "skill", "lane": "Algorithmic Development", "acquired_date": "" },
+            { "id": "Debugging Strategies", "group": "skill", "lane": "Analytical Skills", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Testing and Quality Assurance",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Unit Testing", "group": "skill", "lane": "Testing Fundamentals", "acquired_date": "" },
+            { "id": "Integration Testing", "group": "skill", "lane": "Testing Fundamentals", "acquired_date": "" },
+            { "id": "End-to-End Testing", "group": "skill", "lane": "Testing Fundamentals", "acquired_date": "" },
+            { "id": "Test-Driven Development (TDD)", "group": "skill", "lane": "Development Practices", "acquired_date": "" },
+            { "id": "Behavior-Driven Development (BDD)", "group": "skill", "lane": "Development Practices", "acquired_date": "" },
+            { "id": "Performance Testing", "group": "skill", "lane": "Specialized Testing", "acquired_date": "" },
+            { "id": "Security Testing", "group": "skill", "lane": "Specialized Testing", "acquired_date": "" },
+            { "id": "Automated Testing Frameworks", "group": "skill", "lane": "Testing Automation", "acquired_date": "" },
+            { "id": "Defect Management", "group": "skill", "lane": "Quality Processes", "acquired_date": "" },
+            { "id": "Test Case Design", "group": "skill", "lane": "Quality Processes", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Version Control",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Git Commands", "group": "skill", "lane": "Git Proficiency", "acquired_date": "" },
+            { "id": "Branching Strategies", "group": "skill", "lane": "Git Collaboration", "acquired_date": "" },
+            { "id": "Pull Request/Merge Request Workflow", "group": "skill", "lane": "Git Collaboration", "acquired_date": "" },
+            { "id": "Conflict Resolution", "group": "skill", "lane": "Git Troubleshooting", "acquired_date": "" },
+            { "id": "Repository Hosting Platforms (GitHub, GitLab)", "group": "skill", "lane": "Git Collaboration", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Database Management",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "SQL (Structured Query Language)", "group": "skill", "lane": "Relational Databases", "acquired_date": "" },
+            { "id": "Database Schema Design (Relational)", "group": "skill", "lane": "Relational Databases", "acquired_date": "" },
+            { "id": "NoSQL Database Usage", "group": "skill", "lane": "NoSQL Databases", "acquired_date": "" },
+            { "id": "Indexing", "group": "skill", "lane": "Database Performance", "acquired_date": "" },
+            { "id": "Transactions & ACID Properties", "group": "skill", "lane": "Database Fundamentals", "acquired_date": "" },
+            { "id": "Query Optimization", "group": "skill", "lane": "Database Performance", "acquired_date": "" },
+            { "id": "Database Administration Basics", "group": "skill", "lane": "Database Operations", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Frontend Development",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "HTML5", "group": "skill", "lane": "Web Fundamentals", "acquired_date": "" },
+            { "id": "CSS3", "group": "skill", "lane": "Web Fundamentals", "acquired_date": "" },
+            { "id": "JavaScript (ES6+)", "group": "skill", "lane": "Web Fundamentals", "acquired_date": "" },
+            { "id": "Frameworks/Libraries (React, Angular, Vue.js)", "group": "skill", "lane": "Frontend Frameworks", "acquired_date": "" },
+            { "id": "DOM Manipulation", "group": "skill", "lane": "Web Fundamentals", "acquired_date": "" },
+            { "id": "Build Tools (Webpack, Parcel, Vite)", "group": "skill", "lane": "Frontend Tooling", "acquired_date": "" },
+            { "id": "Package Managers (npm, yarn)", "group": "skill", "lane": "Frontend Tooling", "acquired_date": "" },
+            { "id": "Cross-Browser Compatibility", "group": "skill", "lane": "Frontend Quality", "acquired_date": "" },
+            { "id": "Web Performance Optimization", "group": "skill", "lane": "Frontend Optimization", "acquired_date": "" },
+            { "id": "Accessibility (a11y)", "group": "skill", "lane": "Frontend Quality", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Backend Development",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Server-Side Languages/Runtimes", "group": "skill", "lane": "Backend Languages", "acquired_date": "" },
+            { "id": "Frameworks (Express, Django, Spring Boot)", "group": "skill", "lane": "Backend Frameworks", "acquired_date": "" },
+            { "id": "RESTful API Development", "group": "skill", "lane": "API Development", "acquired_date": "" },
+            { "id": "Authentication & Authorization (Backend)", "group": "skill", "lane": "Backend Security", "acquired_date": "" },
+            { "id": "Message Queues", "group": "skill", "lane": "Asynchronous Processing", "acquired_date": "" },
+            { "id": "Caching Mechanisms", "group": "skill", "lane": "Backend Performance", "acquired_date": "" },
+            { "id": "Background Jobs", "group": "skill", "lane": "Asynchronous Processing", "acquired_date": "" },
+            { "id": "Logging & Monitoring (Backend)", "group": "skill", "lane": "Backend Operations", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "API Design and Integration",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "RESTful API Consumption", "group": "skill", "lane": "API Consumption", "acquired_date": "" },
+            { "id": "API Documentation Tools (Swagger/OpenAPI)", "group": "skill", "lane": "API Documentation", "acquired_date": "" },
+            { "id": "GraphQL", "group": "skill", "lane": "API Development", "acquired_date": "" },
+            { "id": "Webhooks", "group": "skill", "lane": "API Integration", "acquired_date": "" },
+            { "id": "Authentication Mechanisms (APIs)", "group": "skill", "lane": "API Security", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Deployment and DevOps",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Cloud Platforms (AWS, Azure, Google Cloud)", "group": "skill", "lane": "Cloud Infrastructure", "acquired_date": "" },
+            { "id": "Containerization (Docker)", "group": "skill", "lane": "Containerization & Orchestration", "acquired_date": "" },
+            { "id": "Orchestration (Kubernetes)", "group": "skill", "lane": "Containerization & Orchestration", "acquired_date": "" },
+            { "id": "CI/CD Pipelines", "group": "skill", "lane": "Automation & CI/CD", "acquired_date": "" },
+            { "id": "Infrastructure as Code (IaC)", "group": "skill", "lane": "Automation & CI/CD", "acquired_date": "" },
+            { "id": "Shell Scripting", "group": "skill", "lane": "Automation & CI/CD", "acquired_date": "" },
+            { "id": "Monitoring & Alerting Tools (DevOps)", "group": "skill", "lane": "Observability", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Security Best Practices",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "OWASP Top 10", "group": "skill", "lane": "Application Security", "acquired_date": "" },
+            { "id": "Input Validation & Sanitization", "group": "skill", "lane": "Application Security", "acquired_date": "" },
+            { "id": "Secure Coding Principles", "group": "skill", "lane": "Application Security", "acquired_date": "" },
+            { "id": "Password Hashing", "group": "skill", "lane": "Authentication Security", "acquired_date": "" },
+            { "id": "SSL/TLS", "group": "skill", "lane": "Network Security", "acquired_date": "" },
+            { "id": "Access Control (RBAC, ABAC)", "group": "skill", "lane": "Authorization Security", "acquired_date": "" },
+            { "id": "Vulnerability Scanning Tools", "group": "skill", "lane": "Security Testing", "acquired_date": "" }
           ]
         }
       ],
-      "sub_domains": [
+      "sub_domains": []
+    },
+    {
+      "name": "Architecture / Designing",
+      "clusters": [
         {
-          "name": "Cloud Computing",
-          "clusters": [
-            {
-              "name": "Cloud Platform Project",
-              "type": "project",
-              "nodes": [
-                {
-                  "id": "Terraform",
-                  "group": "skill",
-                  "lane": "System Administration and Engineering",
-                  "acquired_date": "2024-02-20"
-                }
-              ]
-            }
+          "name": "Software Design and Architecture",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Architectural Styles & Patterns", "group": "skill", "lane": "Architectural Concepts", "acquired_date": "" },
+            { "id": "System Decomposition", "group": "skill", "lane": "System Design", "acquired_date": "" },
+            { "id": "Scalability Design", "group": "skill", "lane": "System Attributes", "acquired_date": "" },
+            { "id": "High Availability Design", "group": "skill", "lane": "System Attributes", "acquired_date": "" },
+            { "id": "Resilience Engineering", "group": "skill", "lane": "System Attributes", "acquired_date": "" },
+            { "id": "Security Architecture", "group": "skill", "lane": "Architectural Security", "acquired_date": "" },
+            { "id": "Cloud Architecture", "group": "skill", "lane": "Cloud Design", "acquired_date": "" },
+            { "id": "API Gateway Design", "group": "skill", "lane": "API Architecture", "acquired_date": "" },
+            { "id": "Data Modeling (Conceptual/Logical/Physical)", "group": "skill", "lane": "Data Architecture", "acquired_date": "" },
+            { "id": "Cost Optimization (Cloud)", "group": "skill", "lane": "Cloud Design", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Database Management",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Database Selection", "group": "skill", "lane": "Data Architecture", "acquired_date": "" },
+            { "id": "Database Scaling Strategies", "group": "skill", "lane": "Data Architecture", "acquired_date": "" },
+            { "id": "Data Warehousing/Data Lake Concepts", "group": "skill", "lane": "Big Data Architecture", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Frontend Development",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Component-Based Architecture", "group": "skill", "lane": "Frontend Architecture", "acquired_date": "" },
+            { "id": "State Management Architectures", "group": "skill", "lane": "Frontend Architecture", "acquired_date": "" },
+            { "id": "Micro-frontends", "group": "skill", "lane": "Frontend Architecture", "acquired_date": "" },
+            { "id": "UI/UX Principles", "group": "skill", "lane": "Design Principles", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Backend Development",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Microservices Design", "group": "skill", "lane": "Backend Architecture", "acquired_date": "" },
+            { "id": "Event-Driven Architecture", "group": "skill", "lane": "Backend Architecture", "acquired_date": "" },
+            { "id": "Service Mesh Concepts", "group": "skill", "lane": "Backend Architecture", "acquired_date": "" },
+            { "id": "Load Balancing & Proxying", "group": "skill", "lane": "Backend Infrastructure", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "API Design and Integration",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "API Versioning Strategies", "group": "skill", "lane": "API Architecture", "acquired_date": "" },
+            { "id": "API Security Best Practices", "group": "skill", "lane": "API Security", "acquired_date": "" },
+            { "id": "Idempotency", "group": "skill", "lane": "API Design Principles", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Deployment and DevOps",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Cloud Cost Management", "group": "skill", "lane": "Cloud Operations", "acquired_date": "" },
+            { "id": "Disaster Recovery Planning", "group": "skill", "lane": "Resilience & Continuity", "acquired_date": "" },
+            { "id": "Hybrid Cloud/Multi-Cloud Strategies", "group": "skill", "lane": "Cloud Strategy", "acquired_date": "" },
+            { "id": "Observability Design", "group": "skill", "lane": "Operational Design", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Security Best Practices",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Threat Modeling", "group": "skill", "lane": "Security Architecture", "acquired_date": "" },
+            { "id": "Security Architecture Review", "group": "skill", "lane": "Security Architecture", "acquired_date": "" },
+            { "id": "Identity and Access Management (IAM)", "group": "skill", "lane": "Security Architecture", "acquired_date": "" },
+            { "id": "Encryption at Rest & In Transit", "group": "skill", "lane": "Security Fundamentals", "acquired_date": "" }
           ]
         }
-      ]
-    },
-    {
-      "name": "Principle Architect",
-      "clusters": [],
+      ],
       "sub_domains": []
     },
     {
-      "name": "Principle Architect",
-      "clusters": [],
+      "name": "General Sciences",
+      "clusters": [
+        {
+          "name": "Computer Fundamentals",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Computer Architecture (CPU, Memory, I/O)", "group": "skill", "lane": "Hardware Concepts", "acquired_date": "" },
+            { "id": "Operating Systems (Process, Memory, File Systems)", "group": "skill", "lane": "System Software", "acquired_date": "" },
+            { "id": "Networking Fundamentals (OSI, TCP/IP)", "group": "skill", "lane": "Network Concepts", "acquired_date": "" },
+            { "id": "Electromagnetism/Solid State Physics", "group": "skill", "lane": "Physics Fundamentals", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Quantum Computing",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Quantum Mechanics Principles", "group": "skill", "lane": "Quantum Physics", "acquired_date": "" },
+            { "id": "Qubits, Superposition, Entanglement", "group": "skill", "lane": "Quantum Information", "acquired_date": "" },
+            { "id": "Quantum Gates & Circuits", "group": "skill", "lane": "Quantum Computing Fundamentals", "acquired_date": "" },
+            { "id": "Quantum Algorithms", "group": "skill", "lane": "Quantum Computing Fundamentals", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Information Theory",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Entropy", "group": "skill", "lane": "Data & Communication", "acquired_date": "" },
+            { "id": "Channel Capacity", "group": "skill", "lane": "Data & Communication", "acquired_date": "" },
+            { "id": "Coding Theory", "group": "skill", "lane": "Data & Communication", "acquired_date": "" }
+          ]
+        }
+      ],
       "sub_domains": []
     },
     {
-      "name": "Principle Architect",
-      "clusters": [],
-      "sub_domains": []
-    },
-    {
-      "name": "Engineer",
-      "clusters": [],
-      "sub_domains": []
-    },
-    {
-      "name": "test-domain",
-      "clusters": [],
+      "name": "Theory",
+      "clusters": [
+        {
+          "name": "Software & Computational Theory",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Computational Paradigms", "group": "skill", "lane": "Foundational Computing", "acquired_date": "" },
+            { "id": "Language Design Principles", "group": "skill", "lane": "Programming Language Theory", "acquired_date": "" },
+            { "id": "Compiler/Interpreter Principles", "group": "skill", "lane": "Programming Language Theory", "acquired_date": "" },
+            { "id": "Architectural Trade-offs", "group": "skill", "lane": "System Design Principles", "acquired_date": "" },
+            { "id": "System Thinking", "group": "skill", "lane": "Complex Systems", "acquired_date": "" },
+            { "id": "Complexity Theory (Software)", "group": "skill", "lane": "Algorithmic Analysis", "acquired_date": "" },
+            { "id": "Lean Principles", "group": "skill", "lane": "Process Optimization", "acquired_date": "" },
+            { "id": "Theory of Constraints", "group": "skill", "lane": "Process Optimization", "acquired_date": "" },
+            { "id": "Software Process Models", "group": "skill", "lane": "Process Models", "acquired_date": "" },
+            { "id": "Critical Thinking", "group": "skill", "lane": "Cognitive Skills", "acquired_date": "" },
+            { "id": "Cognitive Biases", "group": "skill", "lane": "Cognitive Skills", "acquired_date": "" },
+            { "id": "Heuristics", "group": "skill", "lane": "Problem Solving Paradigms", "acquired_date": "" },
+            { "id": "Testing Principles", "group": "skill", "lane": "Quality Assurance Theory", "acquired_date": "" },
+            { "id": "Quality Metrics", "group": "skill", "lane": "Quality Assurance Theory", "acquired_date": "" },
+            { "id": "Verification vs. Validation", "group": "skill", "lane": "Quality Assurance Theory", "acquired_date": "" },
+            { "id": "Distributed Version Control Systems (DVCS) vs. Centralized Version Control Systems (CVCS)", "group": "skill", "lane": "Version Control Concepts", "acquired_date": "" },
+            { "id": "Directed Acyclic Graphs (DAGs)", "group": "skill", "lane": "Data Structures Theory", "acquired_date": "" },
+            { "id": "Relational Algebra", "group": "skill", "lane": "Database Theory", "acquired_date": "" },
+            { "id": "CAP Theorem", "group": "skill", "lane": "Distributed Systems Theory", "acquired_date": "" },
+            { "id": "Data Models (Theoretical)", "group": "skill", "lane": "Database Theory", "acquired_date": "" },
+            { "id": "Human-Computer Interaction (HCI)", "group": "skill", "lane": "User Experience Theory", "acquired_date": "" },
+            { "id": "Cognitive Psychology (UI/UX)", "group": "skill", "lane": "User Experience Theory", "acquired_date": "" },
+            { "id": "Typography & Color Theory", "group": "skill", "lane": "Design Theory", "acquired_date": "" },
+            { "id": "Distributed Systems Concepts", "group": "skill", "lane": "Distributed Systems Theory", "acquired_date": "" },
+            { "id": "Concurrency & Parallelism", "group": "skill", "lane": "Concurrency Theory", "acquired_date": "" },
+            { "id": "Network Protocols (HTTP/HTTPS, TCP/IP)", "group": "skill", "lane": "Network Theory", "acquired_date": "" },
+            { "id": "Service-Oriented Architecture (SOA)", "group": "skill", "lane": "Architectural Theory", "acquired_date": "" },
+            { "id": "Virtualization Concepts", "group": "skill", "lane": "Infrastructure Theory", "acquired_date": "" },
+            { "id": "Cryptography Basics", "group": "skill", "lane": "Security Theory", "acquired_date": "" },
+            { "id": "Attack Vectors", "group": "skill", "lane": "Security Theory", "acquired_date": "" },
+            { "id": "Information Security Principles (CIA Triad)", "group": "skill", "lane": "Security Theory", "acquired_date": "" }
+          ]
+        },
+        {
+          "name": "Advanced Theoretical Concepts",
+          "type": "discipline",
+          "domain_level": false,
+          "nodes": [
+            { "id": "Formal Methods", "group": "skill", "lane": "Formal Verification", "acquired_date": "" },
+            { "id": "Category Theory", "group": "skill", "lane": "Abstract Mathematics", "acquired_date": "" },
+            { "id": "Logic (Propositional, Predicate)", "group": "skill", "lane": "Foundational Mathematics", "acquired_date": "" },
+            { "id": "Abstract Algebra", "group": "skill", "lane": "Abstract Mathematics", "acquired_date": "" },
+            { "id": "Computational Complexity Theory (P vs. NP)", "group": "skill", "lane": "Algorithmic Analysis", "acquired_date": "" },
+            { "id": "Philosophy of Science/Technology", "group": "skill", "lane": "Interdisciplinary Studies", "acquired_date": "" },
+            { "id": "Cognitive Science", "group": "skill", "lane": "Interdisciplinary Studies", "acquired_date": "" },
+            { "id": "Research Methodologies", "group": "skill", "lane": "Scientific Inquiry", "acquired_date": "" }
+          ]
+        }
+      ],
       "sub_domains": []
     }
   ],
-  "links": [
-    {
-      "source": "System Design",
-      "target": "Terraform",
-      "type": "lane",
-      "lane": "System Administration and Engineering"
-    }
-  ]
+  "links": []
 }

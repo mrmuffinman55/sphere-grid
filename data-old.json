@@ -1,0 +1,134 @@
+{
+  "domains": [
+    {
+      "name": "Technology",
+      "clusters": [
+        {
+          "name": "Principal Engineer",
+          "type": "role",
+          "domain_level": true,
+          "nodes": [
+            {
+              "id": "System Design",
+              "group": "skill",
+              "lane": "Architecting and Planning",
+              "acquired_date": "2022-12-01"
+            },
+            {
+              "id": "test",
+              "group": "project",
+              "lane": "yakoow",
+              "acquired_date": ""
+            },
+            {
+              "id": "rrt",
+              "group": "certification",
+              "lane": "Networking and Security",
+              "acquired_date": ""
+            },
+            {
+              "id": "rrtsfsf",
+              "group": "certification",
+              "lane": "Networking and Security",
+              "acquired_date": ""
+            },
+            {
+              "id": "dfdf",
+              "group": "certification",
+              "lane": "Networking and Security",
+              "acquired_date": ""
+            },
+            {
+              "id": "dsvsv",
+              "group": "skill",
+              "lane": "System Administration and Engineering",
+              "acquired_date": ""
+            },
+            {
+              "id": "sdsvd",
+              "group": "certification",
+              "lane": "Networking and Security",
+              "acquired_date": ""
+            },
+            {
+              "id": "sdcscdcs",
+              "group": "certification",
+              "lane": "Networking and Security",
+              "acquired_date": ""
+            },
+            {
+              "id": "adaadv s",
+              "group": "certification",
+              "lane": "Networking and Security",
+              "acquired_date": ""
+            },
+            {
+              "id": "dcsdcsdc",
+              "group": "certification",
+              "lane": "Networking and Security",
+              "acquired_date": ""
+            },
+            {
+              "id": "dsffsdfsf",
+              "group": "certification",
+              "lane": "Networking and Security",
+              "acquired_date": ""
+            }
+          ]
+        }
+      ],
+      "sub_domains": [
+        {
+          "name": "Cloud Computing",
+          "clusters": [
+            {
+              "name": "Cloud Platform Project",
+              "type": "project",
+              "nodes": [
+                {
+                  "id": "Terraform",
+                  "group": "skill",
+                  "lane": "System Administration and Engineering",
+                  "acquired_date": "2024-02-20"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Principle Architect",
+      "clusters": [],
+      "sub_domains": []
+    },
+    {
+      "name": "Principle Architect",
+      "clusters": [],
+      "sub_domains": []
+    },
+    {
+      "name": "Principle Architect",
+      "clusters": [],
+      "sub_domains": []
+    },
+    {
+      "name": "Engineer",
+      "clusters": [],
+      "sub_domains": []
+    },
+    {
+      "name": "test-domain",
+      "clusters": [],
+      "sub_domains": []
+    }
+  ],
+  "links": [
+    {
+      "source": "System Design",
+      "target": "Terraform",
+      "type": "lane",
+      "lane": "System Administration and Engineering"
+    }
+  ]
+}
