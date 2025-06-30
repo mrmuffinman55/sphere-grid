@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  sphere_grid:
+    build: ./
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_DEBUG=false
+      - SECRET_KEY=your-production-secret-key-change-me
+    volumes:
+      - sphere_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  sphere_data:
+
+networks:
+  default:
+    name: sphere_grid_network

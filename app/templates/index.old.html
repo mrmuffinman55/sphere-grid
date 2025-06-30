@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}FFX Sphere Grid - Learning Ecosystem{% endblock %}
+
+{% block content %}
+<!-- 
+NOTE: Copy your sphere-grid/index.html body content here
+This is a template - you'll need to manually copy your actual HTML
+-->
+
+<div id="sphere-grid-container">
+    <!-- Your sphere grid HTML goes here -->
+    <p style="color: #e1ff00; text-align: center; margin-top: 50px;">
+        🎯 <strong>Copy your sphere-grid/index.html body content here</strong>
+    </p>
+    <p style="color: #ccc; text-align: center;">
+        The container is ready - now add your beautiful FFX interface!
+    </p>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<!-- Your existing sphere grid scripts -->
+<script src="{{ url_for('static', filename='js/disciples.js') }}"></script>
+<script src="{{ url_for('static', filename='js/formations.js') }}"></script>  
+<script src="{{ url_for('static', filename='js/interactions.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<!-- Enhanced node creation system -->
+<script src="{{ url_for('static', filename='js/enhanced-node-creator.js') }}"></script>
+{% endblock %}

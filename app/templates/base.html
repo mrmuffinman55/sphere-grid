@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FFX Sphere Grid Learning Ecosystem{% endblock %}</title>
+    
+    <!-- Your existing beautiful CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formations.css') }}">
+    
+    <!-- Container integration styles -->
+    <style>
+        .container-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(89, 3, 40, 0.9);
+            color: #e1ff00;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 10000;
+        }
+        .keystone-sync-btn {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(3, 63, 89, 0.9);
+            color: #e1ff00;
+            border: 1px solid #e1ff00;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            z-index: 10000;
+        }
+    </style>
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Container status indicator -->
+    <div class="container-status" id="containerStatus">
+        🐳 Containerized System Active
+    </div>
+    
+    <!-- Keystone sync button -->
+    <button class="keystone-sync-btn" onclick="syncKeystoneData()">
+        🔄 Sync Keystone Data
+    </button>
+    
+    {% block content %}{% endblock %}
+    
+    <!-- Container integration scripts -->
+    <script>
+        window.flaskAPI = {
+            base: '',
+            async get(endpoint) {
+                const response = await fetch(`/api${endpoint}`);
+                return response.json();
+            },
+            async post(endpoint, data) {
+                const response = await fetch(`/api${endpoint}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                return response.json();
+            }
+        };
+        
+        async function syncKeystoneData() {
+            const btn = document.querySelector('.keystone-sync-btn');
+            btn.textContent = '⏳ Syncing...';
+            
+            try {
+                const result = await window.flaskAPI.post('/sync-keystone', {});
+                if (result.success) {
+                    btn.textContent = '✅ Synced!';
+                    setTimeout(() => {
+                        btn.textContent = '🔄 Sync Keystone Data';
+                    }, 2000);
+                } else {
+                    btn.textContent = '❌ Sync Failed';
+                }
+            } catch (error) {
+                console.error('Sync failed:', error);
+                btn.textContent = '❌ Sync Failed';
+            }
+        }
+    </script>
+    
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

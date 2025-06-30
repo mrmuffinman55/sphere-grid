@@ -1,117 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sphere Grid</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <script src="{{ url_for('static', filename='js/libs/d3.v7.min.js') }}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sphere Grid - Authentic FFX Style</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-
-  {% include 'navbar.html' %}
-
-
-  <h1>Sphere Grid</h1>
-
-  <!-- Add Node Button -->
-  <button id="addNodeBtn">Add Node</button>
-
-  <svg width="1200" height="800"></svg>
-
-  <!-- Modal for Add Node -->
-  <div id="addNodeModal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeModal">&times;</span>
-      <h2>Add New Node</h2>
-      <form id="addNodeForm">
-        <label>Node Name:</label><br>
-        <input type="text" id="nodeId" required><br><br>
-
-        <label>Group:</label><br>
-        <select id="nodeGroup" required>
-          <option value="certification">Certification</option>
-          <option value="skill">Skill</option>
-          <option value="degree">Degree</option>
-          <option value="project">Project</option>
-          <option value="role">Role</option>
-        </select><br><br>
-
-        <label>Lane (Discipline):</label><br>
-        <select id="nodeLane" required>
-        <option value="Networking and Security">Networking and Security</option>
-        <option value="System Administration and Engineering">System Administration and Engineering</option>
-        <option value="Architecting and Planning">Architecting and Planning</option>
-        <option value="Business and Product Ownership">Business and Product Ownership</option>
-        </select><br><br>
-
-
-        <label>Acquired Date:</label><br>
-        <input type="date" id="nodeDate"><br><br>
-
-        <button type="submit">Add Node</button>
-      </form>
-    </div>
-  </div>
-
-<!-- Edit Node Modal -->
-<div id="editNodeModal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="closeEditModal">&times;</span>
-    <h2>Edit Node</h2>
-    <form id="editNodeForm">
-      <input type="hidden" id="editNodeIndex">
-      <label>Node Name:</label><br>
-      <input type="text" id="editNodeId" required><br><br>
-
-      <label>Group:</label><br>
-      <select id="editNodeGroup" required>
-        <option value="certification">Certification</option>
-        <option value="skill">Skill</option>
-        <option value="degree">Degree</option>
-        <option value="project">Project</option>
-        <option value="role">Role</option>
-      </select><br><br>
-
-      <label>Lane (Discipline):</label><br>
-      <select id="editNodeLane" required>
-        <option value="Networking and Security">Networking and Security</option>
-        <option value="System Administration and Engineering">System Administration and Engineering</option>
-        <option value="Architecting and Planning">Architecting and Planning</option>
-        <option value="Business and Product Ownership">Business and Product Ownership</option>
-      </select><br><br>
-
-      <label>Acquired Date:</label><br>
-      <input type="date" id="editNodeDate"><br><br>
-
-      <button type="submit">Save Changes</button>
-    </form>
-  </div>
-</div>
-
-  <!-- Add Cluster Button -->
-<button id="addClusterBtn">Add Cluster</button>
-
-    <!-- Modal for Add Cluster -->
-    <div id="addClusterModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeClusterModal">&times;</span>
-        <h2>Add New Cluster</h2>
-        <form id="addClusterForm">
-        <label>Cluster Name:</label><br>
-        <input type="text" id="clusterName" required><br><br>
-
-        <label>Cluster Type:</label><br>
-        <select id="clusterType" required>
-            <option value="role">Role</option>
-            <option value="project">Project</option>
-        </select><br><br>
-
-        <button type="submit">Add Cluster</button>
-        </form>
-    </div>
+    <!-- Flask Status Indicator -->
+    <div class="flask-status">
+        🐍 Flask Integration Active
     </div>
 
+    <!-- Enhanced Add Button (for future node creation) -->
+    <div class="enhanced-add-container">
+        <button class="floating-add-btn" title="Add Custom Node" onclick="addCustomNode()">
+            <span>⊕</span>
+        </button>
+    </div>
 
-  <script src="{{ url_for('static', filename='js/sphere_grid.js') }}"></script>
+    <!-- Your original sphere grid content -->
+    <div id="sphere-grid"></div>
+    
+    <div class="toggle-panel" id="toggle-panel" onclick="toggleLegend()">
+        <span id="toggle-icon">☰</span>
+    </div>
+    
+    <div class="ui-panel" id="ui-panel">
+        <h3>🌐 Sphere Grid</h3>
+        <p>Authentic FFX-Style Learning Tree</p>
+        
+        <div class="character-legend">
+            <div class="legend-item active" data-character="dr-g">
+                <div class="legend-color" style="background: #590328;"></div>
+                <span>Dr. G. (Theory)</span>
+            </div>
+            <div class="legend-item" data-character="anthony">
+                <div class="legend-color" style="background: #e1ff00;"></div>
+                <span>Anthony (Engineer)</span>
+            </div>
+            <div class="legend-item" data-character="janet">
+                <div class="legend-color" style="background: #3e0359;"></div>
+                <span>Janet (Architect)</span>
+            </div>
+            <div class="legend-item" data-character="christopher">
+                <div class="legend-color" style="background: #033f59;"></div>
+                <span>Christopher (Admin)</span>
+            </div>
+            <div class="legend-item" data-character="phoenix">
+                <div class="legend-color" style="background: #590303;"></div>
+                <span>Phoenix (Self-Mastery)</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="reset-btn">Reset View</button>
+            <button id="simulate-btn">Simulate Progress</button>
+            <button id="toggle-formations-btn">Toggle Outlines</button>
+            <button id="highlight-paths-btn">Highlight All Paths</button>
+        </div>
+
+        <div class="zoom-info">
+            <div><strong>Learning Paths:</strong></div>
+            <div>• Central: Dr. G. (Theory)</div>
+            <div>• Left: Anthony's Engineering</div>
+            <div>• Right: Janet's Architecture</div>
+            <div>• Bottom: Christopher's STEM</div>
+            <div>• Top: Phoenix's Self-Mastery</div>
+        </div>
+    </div>
+
+    <div class="skill-info" id="skill-info">
+        <h4 id="skill-title">Skill Name</h4>
+        <p id="skill-description">Skill description goes here...</p>
+        <div id="skill-requirements"></div>
+        <div id="skill-resources"></div>
+    </div>
+
+    <!-- Flask integration script -->
+    <script>
+        // Simple Flask API integration
+        window.flaskAPI = {
+            async createCustomNode(nodeData) {
+                try {
+                    const response = await fetch('/api/create-custom-node', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(nodeData)
+                    });
+                    return await response.json();
+                } catch (error) {
+                    console.error('Flask API error:', error);
+                    return {success: false, error: error.message};
+                }
+            }
+        };
+
+        // Simple custom node creation
+        function addCustomNode() {
+            const name = prompt('Enter node name:');
+            if (!name) return;
+
+            const disciple = prompt('Enter disciple (dr-g, anthony, janet, christopher, phoenix):');
+            if (!disciple) return;
+
+            const nodeData = {
+                id: `custom_${Date.now()}`,
+                name: name,
+                description: `Custom node: ${name}`,
+                disciple: disciple,
+                position: {x: Math.random() * 200 - 100, y: Math.random() * 200 - 100}
+            };
+
+            window.flaskAPI.createCustomNode(nodeData).then(result => {
+                if (result.success) {
+                    alert('Node created successfully!');
+                    if (window.sphereGrid) {
+                        window.sphereGrid.addCustomNode(nodeData);
+                    }
+                } else {
+                    alert('Failed to create node: ' + result.error);
+                }
+            });
+        }
+    </script>
+
+    <!-- Your preserved sphere grid JavaScript -->
+    <script src="{{ url_for('static', filename='js/sphere_grid.js') }}"></script>
 </body>
 </html>
