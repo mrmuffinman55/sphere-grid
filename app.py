@@ -1,159 +1,243 @@
-"""
-Sphere Grid Flask Application
-Serves your beautiful sphere grid with minimal Flask integration
-"""
-
-from flask import Flask, render_template, jsonify, request, send_from_directory
-from flask_cors import CORS
-import os
+from flask import Flask, render_template, request, jsonify
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, SelectField, IntegerField
+from wtforms.validators import DataRequired, NumberRange
 import json
-import sqlite3
+import os
 from datetime import datetime
-import logging
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-CORS(app)
+app.config['SECRET_KEY'] = 'your-secret-key-here'  # Change this in production
 
-# Configuration
-class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'sphere-grid-dev-key')
-    DATABASE_URL = 'sqlite:///data/sphere_grid.db'
-    DEBUG = os.environ.get('FLASK_DEBUG', 'true').lower() == 'true'
+# In-memory storage for nodes (replace with database later)
+disciples_data = []
 
-app.config.from_object(Config)
+# Sample initial data - you can replace this with your actual data
+if not disciples_data:
+    disciples_data = [
+        {
+            "id": 1,
+            "name": "⚔️ Warrior", 
+            "description": "Master of combat",
+            "type": "combat",
+            "skills": ["Attack", "Defense", "Stamina"]
+        },
+        {
+            "id": 2, 
+            "name": "🧙 Mage",
+            "description": "Wielder of magic", 
+            "type": "magic",
+            "skills": ["Fire", "Ice", "Lightning"]
+        },
+        {
+            "id": 3,
+            "name": "🏹 Archer", 
+            "description": "Master of ranged combat",
+            "type": "ranged", 
+            "skills": ["Precision", "Speed", "Eagle Eye"]
+        }
+    ]
 
-# Simple database initialization
-def init_db():
-    """Initialize SQLite database for basic functionality"""
-    os.makedirs('data', exist_ok=True)
-    conn = sqlite3.connect('data/sphere_grid.db')
-    cursor = conn.cursor()
-    
-    # Simple custom nodes table
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS custom_nodes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            node_id TEXT UNIQUE,
-            name TEXT NOT NULL,
-            description TEXT,
-            disciple TEXT,
-            position_x REAL,
-            position_y REAL,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    ''')
-    
-    conn.commit()
-    conn.close()
-    logger.info("Database initialized successfully")
+class CustomNodeForm(FlaskForm):
+    name = StringField('Node Name', validators=[DataRequired()])
+    description = TextAreaField('Description')
+    node_type = SelectField('Type', choices=[
+        ('combat', '⚔️ Combat'),
+        ('magic', '🧙 Magic'), 
+        ('ranged', '🏹 Ranged'),
+        ('support', '🛡️ Support'),
+        ('stealth', '🗡️ Stealth'),
+        ('custom', '⭐ Custom')
+    ])
+    icon = StringField('Icon/Prefix', default='⭐')
 
-# Routes
+# Main route - render the sphere grid
 @app.route('/')
 def index():
-    """Serve your beautiful sphere grid interface"""
     return render_template('index.html')
 
+# Health check endpoint
 @app.route('/health')
 def health_check():
-    """Health check for the application"""
     return jsonify({
         "status": "healthy",
-        "service": "sphere-grid-flask",
+        "timestamp": datetime.now().isoformat(),
+        "service": "sphere-grid-api"
+    })
+
+# Get all disciples/nodes
+@app.route('/api/disciples')
+def get_disciples():
+    return jsonify({
+        "disciples": disciples_data,
+        "count": len(disciples_data),
         "timestamp": datetime.now().isoformat()
     })
 
-@app.route('/api/disciples')
-def get_disciples():
-    """Get your disciple system data"""
-    disciples = {
-        'dr-g': {
-            'name': 'Dr. G. (Theory)',
-            'color': '#590328',
-            'symbol': '♦',
-            'domain': 'Central Theory Hub',
-            'position': {'x': 0, 'y': 0}
-        },
-        'anthony': {
-            'name': 'Anthony (Engineer)',
-            'color': '#e1ff00', 
-            'symbol': '⚡',
-            'domain': 'Engineering Domain',
-            'position': {'x': -200, 'y': 0}
-        },
-        'janet': {
-            'name': 'Janet (Architect)',
-            'color': '#3e0359',
-            'symbol': '◊', 
-            'domain': 'Architecture Domain',
-            'position': {'x': 200, 'y': 0}
-        },
-        'christopher': {
-            'name': 'Christopher (Admin)',
-            'color': '#033f59',
-            'symbol': '♦',
-            'domain': 'STEM Foundations',
-            'position': {'x': 0, 'y': 200}
-        },
-        'phoenix': {
-            'name': 'Phoenix (Self-Mastery)',
-            'color': '#590303',
-            'symbol': '☥',
-            'domain': 'Self-Mastery',
-            'position': {'x': 0, 'y': -200}
-        }
-    }
-    return jsonify(disciples)
+# Get specific disciple by ID
+@app.route('/api/disciples/<int:disciple_id>')
+def get_disciple(disciple_id):
+    disciple = next((d for d in disciples_data if d["id"] == disciple_id), None)
+    if disciple:
+        return jsonify(disciple)
+    return jsonify({"error": "Disciple not found"}), 404
 
+# Create new custom node
 @app.route('/api/create-custom-node', methods=['POST'])
 def create_custom_node():
-    """Create custom node from enhanced creation system"""
     try:
-        data = request.json
+        data = request.get_json()
         
-        conn = sqlite3.connect('data/sphere_grid.db')
-        cursor = conn.cursor()
+        # Validate required fields
+        if not data or 'name' not in data:
+            return jsonify({"error": "Missing required field: name"}), 400
         
-        cursor.execute('''
-            INSERT OR REPLACE INTO custom_nodes 
-            (node_id, name, description, disciple, position_x, position_y)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (
-            data.get('id', f"custom_{int(datetime.now().timestamp())}"),
-            data.get('name'),
-            data.get('description'),
-            data.get('disciple'),
-            data.get('position', {}).get('x', 0),
-            data.get('position', {}).get('y', 0)
-        ))
+        # Generate new ID
+        new_id = max([d["id"] for d in disciples_data], default=0) + 1
         
-        conn.commit()
-        conn.close()
+        # Create new node with icon/prefix support
+        new_node = {
+            "id": new_id,
+            "name": data.get('name', 'New Node'),
+            "description": data.get('description', ''),
+            "type": data.get('type', 'custom'),
+            "icon": data.get('icon', '⭐'),
+            "skills": data.get('skills', []),
+            "created_at": datetime.now().isoformat()
+        }
         
-        logger.info(f"Custom node created: {data.get('name')}")
-        return jsonify({'success': True, 'node_id': data.get('id')})
+        # Add icon prefix if not already present
+        if not new_node['name'].startswith(new_node['icon']):
+            new_node['name'] = f"{new_node['icon']} {new_node['name']}"
+        
+        disciples_data.append(new_node)
+        
+        return jsonify({
+            "success": True,
+            "node": new_node,
+            "message": "Custom node created successfully"
+        }), 201
         
     except Exception as e:
-        logger.error(f"Failed to create custom node: {e}")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        return jsonify({
+            "error": "Failed to create custom node",
+            "details": str(e)
+        }), 500
 
-# Static file serving
-@app.route('/css/<path:filename>')
-def serve_css(filename):
-    return send_from_directory('static/css', filename)
+# Update existing node
+@app.route('/api/disciples/<int:disciple_id>', methods=['PUT'])
+def update_disciple(disciple_id):
+    try:
+        data = request.get_json()
+        disciple = next((d for d in disciples_data if d["id"] == disciple_id), None)
+        
+        if not disciple:
+            return jsonify({"error": "Disciple not found"}), 404
+        
+        # Update fields
+        if 'name' in data:
+            disciple['name'] = data['name']
+        if 'description' in data:
+            disciple['description'] = data['description']
+        if 'type' in data:
+            disciple['type'] = data['type']
+        if 'icon' in data:
+            disciple['icon'] = data['icon']
+        if 'skills' in data:
+            disciple['skills'] = data['skills']
+            
+        disciple['updated_at'] = datetime.now().isoformat()
+        
+        return jsonify({
+            "success": True,
+            "node": disciple,
+            "message": "Node updated successfully"
+        })
+        
+    except Exception as e:
+        return jsonify({
+            "error": "Failed to update node",
+            "details": str(e)
+        }), 500
 
-@app.route('/js/<path:filename>')  
-def serve_js(filename):
-    return send_from_directory('static/js', filename)
+# Delete node
+@app.route('/api/disciples/<int:disciple_id>', methods=['DELETE'])
+def delete_disciple(disciple_id):
+    global disciples_data
+    original_count = len(disciples_data)
+    disciples_data = [d for d in disciples_data if d["id"] != disciple_id]
+    
+    if len(disciples_data) < original_count:
+        return jsonify({
+            "success": True,
+            "message": "Node deleted successfully"
+        })
+    else:
+        return jsonify({"error": "Node not found"}), 404
+
+# Admin page for node management
+@app.route('/admin')
+def admin_panel():
+    return render_template('admin.html', disciples=disciples_data)
+
+# API endpoint for admin operations
+@app.route('/api/admin/nodes', methods=['GET'])
+def admin_get_nodes():
+    return jsonify({
+        "nodes": disciples_data,
+        "total": len(disciples_data),
+        "types": list(set(d.get('type', 'custom') for d in disciples_data))
+    })
+
+# Bulk operations for admin
+@app.route('/api/admin/bulk-update', methods=['POST'])
+def admin_bulk_update():
+    try:
+        data = request.get_json()
+        operations = data.get('operations', [])
+        results = []
+        
+        for op in operations:
+            if op['action'] == 'delete':
+                # Delete operation
+                global disciples_data
+                original_count = len(disciples_data)
+                disciples_data = [d for d in disciples_data if d["id"] != op['id']]
+                if len(disciples_data) < original_count:
+                    results.append(f"Deleted node {op['id']}")
+                    
+            elif op['action'] == 'update':
+                # Update operation
+                disciple = next((d for d in disciples_data if d["id"] == op['id']), None)
+                if disciple:
+                    disciple.update(op['data'])
+                    disciple['updated_at'] = datetime.now().isoformat()
+                    results.append(f"Updated node {op['id']}")
+        
+        return jsonify({
+            "success": True,
+            "results": results,
+            "processed": len(operations)
+        })
+        
+    except Exception as e:
+        return jsonify({
+            "error": "Bulk operation failed",
+            "details": str(e)
+        }), 500
+
+# Error handlers
+@app.errorhandler(404)
+def not_found(error):
+    if request.path.startswith('/api/'):
+        return jsonify({"error": "API endpoint not found"}), 404
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    if request.path.startswith('/api/'):
+        return jsonify({"error": "Internal server error"}), 500
+    return render_template('500.html'), 500
 
 if __name__ == '__main__':
-    init_db()
-    
-    logger.info("🌟 Sphere Grid Flask Application Starting...")
-    logger.info("🎮 Your beautiful sphere grid preserved with Flask power!")
-    logger.info("🌐 Access at: http://localhost:5000")
-    
-    app.run(debug=Config.DEBUG, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
