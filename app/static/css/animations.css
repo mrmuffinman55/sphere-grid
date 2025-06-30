@@ -1,0 +1,153 @@
+/* Animations and Transitions */
+
+/* Background Animations */
+@keyframes backgroundShimmer {
+    0%, 100% { 
+        background-position: 
+            0 0,
+            100px 100px,
+            50px 150px,
+            0 0,
+            0 0,
+            0 0,
+            60px 60px,
+            0 0;
+    }
+    50% { 
+        background-position: 
+            -50px -50px,
+            150px 50px,
+            100px 100px,
+            -20px -20px,
+            -20px -20px,
+            -30px -30px,
+            90px 30px,
+            0 0;
+    }
+}
+
+@keyframes floatingDots {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-10px, -15px); }
+    50% { transform: translate(15px, -10px); }
+    75% { transform: translate(-5px, 10px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Apply background animations */
+body {
+    animation: backgroundShimmer 20s ease-in-out infinite;
+}
+
+#sphere-grid::before {
+    animation: floatingDots 15s linear infinite;
+}
+
+/* Node Animations */
+@keyframes discipleGlow {
+    0%, 100% { 
+        filter: drop-shadow(0 0 15px currentColor);
+    }
+    50% { 
+        filter: drop-shadow(0 0 25px currentColor) brightness(1.1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+@keyframes march {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 6; }
+}
+
+/* Connection Animations */
+@keyframes teleporterPulse {
+    0%, 100% { opacity: 0.7; stroke-width: 2.5; }
+    50% { opacity: 0.9; stroke-width: 3; }
+}
+
+@keyframes energyFlow {
+    0% { stroke-dasharray: 5,5; stroke-dashoffset: 0; }
+    100% { stroke-dasharray: 5,5; stroke-dashoffset: 10; }
+}
+
+@keyframes discipleConnection {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 10; }
+}
+
+/* Formation Animations */
+@keyframes formationGlow {
+    0%, 100% { 
+        stroke: rgba(100, 150, 255, 0.15);
+        filter: drop-shadow(0 0 3px rgba(100, 150, 255, 0.3));
+    }
+    50% { 
+        stroke: rgba(100, 150, 255, 0.25);
+        filter: drop-shadow(0 0 6px rgba(100, 150, 255, 0.5));
+    }
+}
+
+/* Hover Transitions */
+.skill-node {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skill-node:hover {
+    filter: brightness(1.4) drop-shadow(0 0 15px currentColor);
+    transform: scale(1.1);
+}
+
+.skill-node.disciple:hover {
+    filter: brightness(1.2) drop-shadow(0 0 25px currentColor);
+    transform: scale(1.1);
+}
+
+/* Connection Transitions */
+.connection-line {
+    fill: none;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+}
+
+.connection-line.active {
+    stroke: #4a9eff;
+    stroke-width: 3;
+    opacity: 1;
+    animation: pulse 2s infinite, energyFlow 1.5s linear infinite;
+    filter: drop-shadow(0 0 8px #4a9eff);
+}
+
+/* Character Path Animation */
+.character-path {
+    stroke-width: 4;
+    fill: none;
+    opacity: 0.8;
+    stroke-dasharray: 3,3;
+    animation: march 1s linear infinite;
+}
+
+/* UI Transitions */
+.legend-item {
+    transition: opacity 0.3s;
+}
+
+.toggle-panel {
+    transition: all 0.3s ease;
+}
+
+.ui-panel {
+    transition: all 0.3s ease;
+}
+
+.skill-info {
+    transition: all 0.3s ease;
+}
+
+button {
+    transition: background 0.3s ease;
+}

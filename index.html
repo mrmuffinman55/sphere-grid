@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sphere Grid - Authentic FFX Style Learning Paths</title>
+    
+    <!-- D3.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/formations.css">
+</head>
+<body>
+    <div id="sphere-grid"></div>
+    
+    <div class="toggle-panel" id="toggle-panel" onclick="toggleLegend()">
+        <span id="toggle-icon">☰</span>
+    </div>
+    
+    <div class="ui-panel" id="ui-panel">
+        <h3>🌐 Sphere Grid</h3>
+        <p>Dr. G.'s Learning Ecosystem</p>
+        
+        <div class="character-legend">
+            <div class="legend-item active" data-character="dr-g">
+                <div class="legend-color" style="background: #590328;"></div>
+                <span>Dr. G. (Theory)</span>
+            </div>
+            <div class="legend-item" data-character="anthony">
+                <div class="legend-color" style="background: #e1ff00;"></div>
+                <span>Anthony (Engineer)</span>
+            </div>
+            <div class="legend-item" data-character="janet">
+                <div class="legend-color" style="background: #3e0359;"></div>
+                <span>Janet (Architect)</span>
+            </div>
+            <div class="legend-item" data-character="christopher">
+                <div class="legend-color" style="background: #033f59;"></div>
+                <span>Christopher (Admin)</span>
+            </div>
+            <div class="legend-item" data-character="phoenix">
+                <div class="legend-color" style="background: #590303;"></div>
+                <span>Phoenix (Self-Mastery)</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="reset-btn">Reset View</button>
+            <button id="simulate-btn">Simulate Progress</button>
+            <button id="toggle-formations-btn">Toggle Outlines</button>
+            <button id="highlight-paths-btn">Highlight All Paths</button>
+        </div>
+
+        <div class="zoom-info">
+            <div><strong>Learning Paths:</strong></div>
+            <div>• Central: Dr. G. (Theory)</div>
+            <div>• Left: Anthony's Engineering</div>
+            <div>• Right: Janet's Architecture</div>
+            <div>• Bottom: Christopher's STEM</div>
+            <div>• Top: Phoenix's Self-Mastery</div>
+        </div>
+    </div>
+
+    <div class="skill-info" id="skill-info">
+        <h4 id="skill-title">Skill Name</h4>
+        <p id="skill-description">Skill description goes here...</p>
+        <div id="skill-requirements"></div>
+        <div id="skill-resources"></div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/disciples.js"></script>
+    <script src="js/formations.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

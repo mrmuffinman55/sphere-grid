@@ -1,0 +1,205 @@
+/* Node and Formation Specific Styles */
+
+/* Base Node Styles */
+.skill-node {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Node States */
+.skill-node.locked {
+    fill: #2c2c2c;
+    stroke: #444;
+    stroke-width: 2;
+}
+
+.skill-node.available {
+    fill: #4a9eff;
+    stroke: #6bb6ff;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 8px #4a9eff);
+}
+
+.skill-node.completed {
+    fill: #00ff88;
+    stroke: #33ffaa;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 8px #00ff88);
+}
+
+.skill-node.mastered {
+    fill: #ffd700;
+    stroke: #ffed4e;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 12px #ffd700);
+}
+
+/* Disciple Nodes */
+.skill-node.disciple {
+    stroke-width: 4;
+    filter: drop-shadow(0 0 15px currentColor);
+    animation: discipleGlow 3s ease-in-out infinite;
+}
+
+/* Skill Type Colors */
+.skill-node.cyber {
+    fill: #ff4757;
+    stroke: #ff6b7d;
+}
+
+.skill-node.systems {
+    fill: #5352ed;
+    stroke: #7bed9f;
+}
+
+.skill-node.data {
+    fill: #3742fa;
+    stroke: #5a67d8;
+}
+
+.skill-node.software {
+    fill: #a55eea;
+    stroke: #d63384;
+}
+
+.skill-node.stem {
+    fill: #26de81;
+    stroke: #2ed573;
+}
+
+.skill-node.selfmastery {
+    fill: #ff6b6b;
+    stroke: #ff7979;
+}
+
+/* Connection Lines */
+.connection-line.within-formation {
+    stroke: #555;
+    stroke-width: 1.5;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(85, 85, 85, 0.5));
+}
+
+.connection-line.teleporter-link {
+    stroke: #888;
+    stroke-width: 2.5;
+    opacity: 0.7;
+    stroke-dasharray: 4,2;
+    filter: drop-shadow(0 0 4px rgba(136, 136, 136, 0.6));
+    animation: teleporterPulse 3s ease-in-out infinite;
+}
+
+.connection-line.disciple-connection {
+    stroke: #590328;
+    stroke-width: 3;
+    opacity: 0.6;
+    stroke-dasharray: 5,5;
+    animation: discipleConnection 2s linear infinite;
+}
+
+.connection-line.formation-to-disciple {
+    stroke-width: 2;
+    opacity: 0.4;
+    stroke-dasharray: 3,3;
+}
+
+/* Formation Outlines */
+.formation-outline {
+    fill: none;
+    stroke: rgba(100, 150, 255, 0.15);
+    stroke-width: 1.5;
+    stroke-dasharray: 3,6;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 3px rgba(100, 150, 255, 0.3));
+    animation: formationGlow 4s ease-in-out infinite;
+}
+
+/* Labels */
+.formation-label {
+    font-size: 11px;
+    font-weight: bold;
+    text-anchor: middle;
+    fill: #ffffff;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.skill-label {
+    font-size: 8px;
+    text-anchor: middle;
+    fill: #ffffff;
+    pointer-events: none;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.disciple-label {
+    font-size: 10px;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.disciple-symbol {
+    font-size: 16px;
+    font-weight: bold;
+    text-anchor: middle;
+    fill: white;
+    pointer-events: none;
+}
+
+/* Skill Type Specific Formations */
+.formation-cyber {
+    stroke: #ff4757;
+}
+
+.formation-systems {
+    stroke: #5352ed;
+}
+
+.formation-data {
+    stroke: #3742fa;
+}
+
+.formation-software {
+    stroke: #a55eea;
+}
+
+.formation-stem {
+    stroke: #26de81;
+}
+
+.formation-selfmastery {
+    stroke: #ff6b6b;
+}
+
+/* Path Highlighting */
+.path-highlight {
+    stroke-width: 5;
+    opacity: 1;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.path-cyber {
+    stroke: #ff4757;
+}
+
+.path-systems {
+    stroke: #5352ed;
+}
+
+.path-data {
+    stroke: #3742fa;
+}
+
+.path-software {
+    stroke: #a55eea;
+}
+
+.path-stem {
+    stroke: #26de81;
+}
+
+.path-selfmastery {
+    stroke: #ff6b6b;
+}

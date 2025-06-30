@@ -1,0 +1,197 @@
+{
+  "disciples": {
+    "dr-g": {
+      "name": "Dr. G. (Theory)",
+      "color": "#590328",
+      "position": { "x": 0, "y": 0 },
+      "description": "Master theorist and central figure",
+      "symbol": "♦"
+    },
+    "anthony": {
+      "name": "Anthony (Engineer)",
+      "color": "#e1ff00",
+      "position": { "x": -200, "y": 0 },
+      "description": "Engineer & Practitioner",
+      "symbol": "⚡"
+    },
+    "janet": {
+      "name": "Janet (Architect)",
+      "color": "#3e0359",
+      "position": { "x": 200, "y": 0 },
+      "description": "Architect & Design",
+      "symbol": "◊"
+    },
+    "christopher": {
+      "name": "Christopher (Admin)",
+      "color": "#033f59",
+      "position": { "x": 0, "y": 200 },
+      "description": "Administration & STEM",
+      "symbol": "♦"
+    },
+    "phoenix": {
+      "name": "Phoenix (Self-Mastery)",
+      "color": "#590303",
+      "position": { "x": 0, "y": -200 },
+      "description": "Self-Mastery and personal development",
+      "symbol": "☥"
+    }
+  },
+  "learningPaths": {
+    "cyber": {
+      "name": "Cyber Security Mastery",
+      "disciple": "anthony",
+      "color": "#ff4757",
+      "type": "linear",
+      "skills": [
+        { "name": "Cyber Mastery", "resources": ["CompTIA Security+ Study Guide"] },
+        { "name": "CompTIA", "resources": ["CompTIA Official Training"] },
+        { "name": "Sec+", "resources": ["Security+ Certification"] },
+        { "name": "PenTest+", "resources": ["Penetration Testing Guide"] },
+        { "name": "CySA+", "resources": ["CySA+ Study Materials"] }
+      ]
+    },
+    "systems": {
+      "name": "Systems Engineering",
+      "disciple": "anthony",
+      "color": "#5352ed",
+      "type": "linear",
+      "skills": [
+        { "name": "Systems", "resources": ["Systems Administration Fundamentals"] },
+        { "name": "CompTIA", "resources": ["CompTIA Server+ Training"] },
+        { "name": "Server+", "resources": ["Server+ Certification"] },
+        { "name": "Linux+", "resources": ["Linux+ Study Guide"] }
+      ]
+    },
+    "networking": {
+      "name": "Networking Mastery",
+      "disciple": "anthony",
+      "color": "#6600ff",
+      "type": "linear",
+      "skills": [
+        { "name": "Networking Fundamentals", "resources": ["Network+ Study Guide"] },
+        { "name": "Cisco CCNA", "resources": ["CCNA Official Cert Guide"] },
+        { "name": "Network Engineer", "resources": ["Advanced Networking"] },
+        { "name": "CCIE Path", "resources": ["Expert-Level Certification"] }
+      ]
+    },
+    "data": {
+      "name": "Data Science & ML",
+      "disciple": "janet",
+      "color": "#3742fa",
+      "type": "semicircle",
+      "skills": [
+        { "name": "Data Science", "resources": ["Python for Data Science"] },
+        { "name": "Machine Learning", "resources": ["Math of ML", "Python Learn ML by Example"] },
+        { "name": "Algorithms", "resources": ["The Bible of Algorithms & Data Structures"] },
+        { "name": "Python ML", "resources": ["Python ML and Deep Learning"] },
+        { "name": "Deep Learning", "resources": ["Advanced Deep Learning"] }
+      ]
+    },
+    "software": {
+      "name": "Software Architecture",
+      "disciple": "janet",
+      "color": "#a55eea",
+      "type": "circle",
+      "skills": [
+        { "name": "Design Patterns", "resources": ["Design Patterns Book"] },
+        { "name": "Architecture", "resources": ["Software Architecture Guide"] },
+        { "name": "Microservices", "resources": ["Microservices Patterns"] },
+        { "name": "Cloud Design", "resources": ["Cloud Architecture"] },
+        { "name": "System Design", "resources": ["System Design Interview"] },
+        { "name": "DevOps", "resources": ["DevOps Handbook"] }
+      ]
+    },
+    "stem": {
+      "name": "STEM Foundations",
+      "disciple": "christopher",
+      "color": "#26de81",
+      "type": "linear",
+      "skills": [
+        { "name": "Algebra", "resources": ["McGraw-Hill Algebra I", "McGraw-Hill Algebra II", "CLEP College Algebra Book"] },
+        { "name": "Geometry", "resources": ["Grades 7-10 Practice Workbook", "Ace Geometry in One Big Fat Notebook"] },
+        { "name": "Calculus", "resources": ["Essential Calculus Skills Practice Book"] },
+        { "name": "Physics", "resources": ["Quantum Physics for Beginners", "What is Light?"] },
+        { "name": "Chemistry", "resources": ["Chemistry Made Easy"] }
+      ]
+    },
+    "selfMastery": {
+      "name": "Self-Mastery",
+      "disciple": "phoenix",
+      "color": "#ff6b6b",
+      "type": "circle",
+      "skills": [
+        { "name": "Philosophy", "resources": ["The Divine Comedy"] },
+        { "name": "Psychology", "resources": ["Why Darkness Matters"] },
+        { "name": "Leadership", "resources": ["Leadership Fundamentals"] },
+        { "name": "Communication", "resources": ["Effective Communication"] },
+        { "name": "Critical Thinking", "resources": ["Algorithms to Live By"] },
+        { "name": "Creativity", "resources": ["Creative Problem Solving"] },
+        { "name": "Discipline", "resources": ["Self-Discipline Guide"] },
+        { "name": "Growth Mindset", "resources": ["Mindset: The New Psychology"] }
+      ]
+    }
+  },
+  "formations": {
+    "cyber": {
+      "center": { "x": -300, "y": -100 },
+      "type": "linear",
+      "startPoint": { "x": -300, "y": -100 },
+      "endPoint": { "x": -50, "y": -100 }
+    },
+    "systems": {
+      "center": { "x": -300, "y": 50 },
+      "type": "linear",
+      "startPoint": { "x": -300, "y": 50 },
+      "endPoint": { "x": -50, "y": 50 }
+    },
+    "data": {
+      "center": { "x": 200, "y": -100 },
+      "type": "semicircle",
+      "radius": 60
+    },
+    "software": {
+      "center": { "x": 200, "y": 100 },
+      "type": "circle",
+      "radius": 50
+    },
+    "stem": {
+      "center": { "x": 0, "y": 200 },
+      "type": "linear",
+      "startPoint": { "x": -150, "y": 200 },
+      "endPoint": { "x": 150, "y": 200 }
+    },
+    "selfMastery": {
+      "center": { "x": 0, "y": -200 },
+      "type": "circle",
+      "radius": 60
+    }
+  },
+  "characterPaths": {
+    "anthony": {
+      "color": "#e1ff00",
+      "paths": ["cyber", "systems", "networking"]
+    },
+    "janet": {
+      "color": "#3e0359",
+      "paths": ["data", "software"]
+    },
+    "christopher": {
+      "color": "#033f59",
+      "paths": ["stem"]
+    },
+    "phoenix": {
+      "color": "#590303",
+      "paths": ["selfMastery"]
+    },
+    "dr-g": {
+      "color": "#590328",
+      "paths": ["cyber", "systems", "networking", "data", "software", "stem", "selfMastery"]
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-01",
+    "description": "Dr. G.'s Learning Ecosystem - Comprehensive skill development paths",
+    "canvasSource": "Obsidian Canvas exports from learning path planning"
+  }
+}
